@@ -2,4 +2,7 @@
     <string name="app_name" translatable="false">AndroidAssignments</string>
     <string name="hello_message">Hello World!</string>
     <string name="ButtonText" translatable="false">I\'m a button!</string>
+    <string name="LG">Login</string>
+    <string name="pass">Password</string>
+    <string name="backbutton" translatable="false"> Back</string>
 </resources>
