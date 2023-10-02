@@ -15,10 +15,10 @@
         android:text="@string/LG" />
 
     <EditText
-        android:id="@+id/editTextText1"
+        android:id="@+id/emailtext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="login name"
+        android:hint="Enter Email"
         android:inputType="textEmailAddress" />
 
     <TextView
@@ -28,17 +28,18 @@
         android:text="@string/pass" />
 
     <EditText
-        android:id="@+id/editTextText5"
+        android:id="@+id/passwordtext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:text="" />
+        android:hint="Enter Password"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/backbutton" />
+        android:backgroundTint="@color/green"
+        android:text="@string/login" />
 
 
 </LinearLayout>
