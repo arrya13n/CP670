@@ -56,7 +56,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="124dp"
         android:backgroundTint="#E80B56"
-        android:text="Back"
+        android:text="@string/back"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout2"
         tools:layout_editor_absoluteX="16dp" />
 

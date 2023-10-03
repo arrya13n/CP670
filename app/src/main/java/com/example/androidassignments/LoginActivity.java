@@ -19,12 +19,17 @@ public class LoginActivity extends AppCompatActivity {
     private Button btn;
     private EditText emailtext,password;
 
+    private String v;
+
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        SharedPreferences sharedpref = getSharedPreferences("SP", LoginActivity.MODE_PRIVATE);
         setContentView(R.layout.activity_login);
+        v=getString(R.string.validate_email);
+        SharedPreferences sharedpref = getSharedPreferences("SP", LoginActivity.MODE_PRIVATE);
+        editor = sharedpref.edit();
         emailtext = findViewById(R.id.emailtext);
         String Text = sharedpref.getString("DefaultEmail", "email@domain.com");
         emailtext.setText(Text);
@@ -39,6 +44,7 @@ public class LoginActivity extends AppCompatActivity {
                 openActivity();
             }
         });
+
     }
 
     public void openActivity() {
@@ -46,12 +52,14 @@ public class LoginActivity extends AppCompatActivity {
         String pass = password.getText().toString();
         if(!Text.isEmpty() && Patterns.EMAIL_ADDRESS.matcher(Text).matches() && !pass.isEmpty())
         {
+            editor.putString("DefaultEmail", emailtext.getText().toString());
+            editor.apply();
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
         else
             {
-                Toast.makeText(this, "Not valid Email and password", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, v, Toast.LENGTH_SHORT).show();
             }
         }
 
@@ -80,6 +88,9 @@ public class LoginActivity extends AppCompatActivity {
     }
     public void onRestoreInstanceState(Bundle savedInstance){
         super.onRestoreInstanceState(savedInstance);
+    }
+    private void print(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
 }

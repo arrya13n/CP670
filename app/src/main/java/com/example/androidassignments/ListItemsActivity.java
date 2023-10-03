@@ -5,6 +5,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -24,7 +26,9 @@ public class ListItemsActivity extends AppCompatActivity {
     private Button backbutton;
     private ImageButton imagebutton;
     private Switch S;
-//    private CheckBox CB;
+    private CheckBox CB;
+
+    private String s1, s2;
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -44,6 +48,9 @@ public class ListItemsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_items);
+
+        s1=getString(R.string.ON);
+        s2=getString(R.string.OFF);
        imagebutton = findViewById(R.id.imageButton);
         imagebutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,29 +80,33 @@ public class ListItemsActivity extends AppCompatActivity {
                 setOnCheckedChanged();
             }
         });
-//        CB = findViewById(R.id.checkBox);
-//        CB.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                AlertDialog();
-//            }
-//        });
+       CB = findViewById(R.id.checkBox);
+        CB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog();
+            }
+        });
     }
-//    private void AlertDialog(){
-//        AlertDialog.Builder = new AlertDialog.Builder(ListItemsActivity.this);
-//        builder.setMessage(R.string.dialog_message)
-//
-//                .setTitle(R.string.dialog_title)
-//                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int id) {
-//                    }
-//                })
-//                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int id) {
-//                    }
-//                })
-//                .show();
-//    }
+    private void AlertDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(ListItemsActivity.this);
+        builder.setMessage(R.string.dialog_message)
+
+                .setTitle(R.string.dialog_title)
+                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        Intent resultIntent = new Intent(  );
+                        resultIntent.putExtra("Response", "ListItemsActivity passed: my information to share");
+                        setResult(RESULT_OK, resultIntent);
+                        finish();
+                    }
+                })
+                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                })
+                .show();
+}
     private void print(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
@@ -103,11 +114,11 @@ public class ListItemsActivity extends AppCompatActivity {
 
         if(S.isChecked())
         {
-            Toast.makeText(this, "SWITCH IS ON",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, s1,Toast.LENGTH_SHORT).show();
         }
         else
         {
-            Toast.makeText(this, "SWITCH IS OFF", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, s2, Toast.LENGTH_LONG).show();
         }
 
     }

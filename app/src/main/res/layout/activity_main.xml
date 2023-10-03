@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:backgroundTint="#708381"
-        android:text="Back"
+        android:text="@string/back"
         app:layout_constraintTop_toBottomOf="@+id/button"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="161dp" />

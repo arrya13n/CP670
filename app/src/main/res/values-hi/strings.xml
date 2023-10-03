@@ -2,8 +2,16 @@
 <resources>
     <string name="app_name" translatable="false">AndroidAssignments</string>
     <string name="hello_message" translatable="false">नमस्ते!</string>
-    <string name="ButtonText" translatable="false">I\'m a button!</string>
-    <string name="LG">Login</string>
-    <string name="pass">Password</string>
-    <string name="login" translatable="false">Login</string>
+    <string name="ButtonText" translatable="false">मैं एक बटन हूँ!</string>
+    <string name="LG">लॉगइन</string>
+    <string name="pass">पासवर्ड</string>
+    <string name="login" translatable="false">लॉग इन करें</string>
+    <string name="dialog_message">क्या आप सक्रियता से बाहर निकलना चाहते हैं?</string>
+    <string name="dialog_title">चेतावनी बॉक्स</string>
+    <string name="ok">हाँ</string>
+    <string name="cancel">नहीं</string>
+    <string name="ON" translatable="false">स्विच चालू है</string>
+    <string name="OFF" translatable="false">स्विच बंद है</string>
+    <string name="validate_email">वैध ईमेल और पासवर्ड नहीं</string>
+    <string name="back">पीछे</string>
 </resources>
