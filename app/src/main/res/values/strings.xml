@@ -13,4 +13,10 @@
     <string name="OFF">SWITCH IS OFF</string>
     <string name="validate_email">Not valid Email and password</string>
     <string name="back">Back</string>
+    <string name="startchat">Start Chat</string>
+    <string name="sendbutton">Send</string>
+    <string name="ChatWindow">Chat Window</string>
+    <string name="entertext">Enter Text</string>
+    <string name="enterpass">Enter Password</string>
+    <string name="entermail">Enter Email</string>
 </resources>

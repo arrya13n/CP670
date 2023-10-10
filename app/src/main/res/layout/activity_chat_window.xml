@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChatWindowActivity">
+
+    <ListView
+        android:id="@+id/chatlistview"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_above="@id/sendbutton"
+        android:layout_below="@id/toolbar"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"></ListView>
+
+    <EditText
+        android:id="@+id/edittext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/sendbutton"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:inputType="text"
+        android:hint="@string/entertext" />
+
+    <Button
+        android:id="@+id/sendbutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:backgroundTint="#8C6B6B"
+        android:text="@string/sendbutton" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:backgroundTint="#57B399"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:title="@string/ChatWindow"/>
+
+</RelativeLayout>

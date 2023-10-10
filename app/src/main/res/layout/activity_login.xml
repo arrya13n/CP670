@@ -31,7 +31,7 @@
         android:id="@+id/passwordtext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter Password"
+        android:hint="@string/enterpass"
         android:inputType="textPassword" />
 
     <Button

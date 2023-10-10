@@ -5,10 +5,11 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
-    <uses-permission android:name="android.permission.CAMERA"
-        android:requiredFeature="true"
-        android:required="true"/>
 
+    <uses-permission
+        android:name="android.permission.CAMERA"
+        android:required="true"
+        android:requiredFeature="true" />
 
     <application
         android:allowBackup="true"
@@ -21,30 +22,27 @@
         android:theme="@style/Theme.AndroidAssignments"
         tools:targetApi="31">
         <activity
-            android:name=".ListItemsActivity"
+            android:name=".ChatWindowActivity"
             android:exported="true">
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="MainActivity" />
         </activity>
         <activity
+            android:name=".ListItemsActivity"
+            android:exported="true"></activity>
+        <activity
             android:name=".LoginActivity"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
-
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-
-        </activity>
-
-
+            android:exported="true"></activity>
     </application>
 
 </manifest>

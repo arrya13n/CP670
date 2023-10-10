@@ -14,4 +14,10 @@
     <string name="OFF" translatable="false">स्विच बंद है</string>
     <string name="validate_email">वैध ईमेल और पासवर्ड नहीं</string>
     <string name="back">पीछे</string>
+    <string name="startchat">बातचीत शुरू</string>
+    <string name="sendbutton">भेजिये</string>
+    <string name="ChatWindow">चैट विंडो</string>
+    <string name="entertext">पाठ दर्ज करें</string>
+    <string name="enterpass">पास वर्ड दर्ज करें</string>
+    <string name="entermail">ईमेल दर्ज करें</string>
 </resources>
