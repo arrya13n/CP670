@@ -22,6 +22,10 @@
         android:theme="@style/Theme.AndroidAssignments"
         tools:targetApi="31">
         <activity
+            android:name=".TestToolbar"
+            android:exported="false"
+            android:theme="@style/Theme.AndroidAssignments" />
+        <activity
             android:name=".ChatWindowActivity"
             android:exported="true">
             <meta-data
@@ -30,7 +34,7 @@
         </activity>
         <activity
             android:name=".ListItemsActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -42,7 +46,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -28,10 +28,9 @@
     <Button
         android:id="@+id/sendbutton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:backgroundTint="#8C6B6B"
+        style="@style/my_style"
         android:text="@string/sendbutton" />
 
     <androidx.appcompat.widget.Toolbar

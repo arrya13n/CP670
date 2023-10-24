@@ -20,4 +20,7 @@
     <string name="entertext">पाठ दर्ज करें</string>
     <string name="enterpass">पास वर्ड दर्ज करें</string>
     <string name="entermail">ईमेल दर्ज करें</string>
+    <string name="testoolbar">टूलबार टेस्ट करे</string>
+    <string name="lettericon">आपने लेटर आइकन पर क्लिक किया</string>
+    <string name="toolbar_alert">क्या आप वापस जाना चाहते हैं?</string>
 </resources>

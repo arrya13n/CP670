@@ -19,4 +19,7 @@
     <string name="entertext">Enter Text</string>
     <string name="enterpass">Enter Password</string>
     <string name="entermail">Enter Email</string>
+    <string name="testoolbar">Test Toolbar</string>
+    <string name="lettericon">You clicked on letter icon</string>
+    <string name="toolbar_alert">Do you want to go back?</string>
 </resources>
