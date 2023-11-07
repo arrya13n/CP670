@@ -4,6 +4,7 @@ import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,12 +19,19 @@ import android.widget.ListView;
 import android.widget.TextView;
 import java.util.ArrayList;
 import androidx.appcompat.widget.Toolbar;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.content.ContentValues;
 
 public class ChatWindowActivity extends AppCompatActivity {
+    private ChatDatabaseHelper dbh;
+    private SQLiteDatabase database;
+    private static final String ACTIVITY_NAME = "ChatWindow";
     private ListView listview;
     private Button sendbutton;
     private EditText edittext;
     private ArrayList<String> chatmessages;
+    private ChatAdapter adapter;
     private class ChatAdapter extends ArrayAdapter<String>{
         private final ArrayList<String> string2;
         private Context ct;
@@ -55,6 +63,7 @@ public class ChatWindowActivity extends AppCompatActivity {
         }
     }
     private Toolbar TB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,8 +72,32 @@ public class ChatWindowActivity extends AppCompatActivity {
         edittext = findViewById(R.id.edittext);
         listview = findViewById(R.id.chatlistview);
         chatmessages = new ArrayList<String>();
-        ChatAdapter adapter = new ChatAdapter(this, chatmessages);
+        adapter = new ChatAdapter(this, chatmessages);
         listview.setAdapter(adapter);
+        dbh = new ChatDatabaseHelper(this);
+        database = dbh.getWritableDatabase();
+
+        Cursor cursor = database.rawQuery("SELECT * FROM " + ChatDatabaseHelper.TABLE_NAME, null);
+
+        while (cursor.moveToNext()) {
+            Log.i(ACTIVITY_NAME, "SQL MESSAGE: " + cursor.getString(1));
+            chatmessages.add(
+                    cursor.getString(1)
+
+            );
+
+            adapter.notifyDataSetChanged();
+        }
+
+        Log.i(ACTIVITY_NAME, "Column count of cursor is =" + cursor.getColumnCount());
+
+        for (int i = 0; i < cursor.getColumnCount(); i++) {
+            Log.i(ACTIVITY_NAME, "Column name: " + cursor.getColumnName(i));
+        }
+
+        cursor.close();
+
+
 
         sendbutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,6 +106,9 @@ public class ChatWindowActivity extends AppCompatActivity {
                 String message = edittext.getText().toString();
                 if (!message.isEmpty()) {
                     chatmessages.add(message);
+                    ContentValues values = new ContentValues();
+                    values.put(ChatDatabaseHelper.KEY_MESSAGE, message);
+                    database.insert(ChatDatabaseHelper.TABLE_NAME, null, values);
                     adapter.notifyDataSetChanged();
                     edittext.setText("");
 
@@ -84,6 +120,15 @@ public class ChatWindowActivity extends AppCompatActivity {
         setSupportActionBar(TB);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
+
+    protected void onDestroy() {
+        super.onDestroy();
+
+        if (database != null && database.isOpen()) {
+            database.close();
+        }
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -94,7 +139,7 @@ public class ChatWindowActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
+    
 }
 
 
