@@ -11,14 +11,24 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
-    private Button back, button,startbtn,toolbarbtn;
+    private Button back, button,startbtn,toolbarbtn,weatherbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        weatherbtn = findViewById(R.id.weatherforecast);
+        weatherbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startweatherforecast();
+            }
+        });
 
         back = findViewById(R.id.button2);
         back.setOnClickListener(new View.OnClickListener() {
@@ -54,6 +64,11 @@ public class MainActivity extends AppCompatActivity {
                 testtoolbar();
             }
         });
+    }
+
+public void startweatherforecast(){
+        Intent intent = new Intent(this, WeatherForecast.class);
+        startActivity(intent);
     }
 
     @Override

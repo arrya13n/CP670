@@ -22,4 +22,5 @@
     <string name="testoolbar">Test Toolbar</string>
     <string name="lettericon">You clicked on letter icon</string>
     <string name="toolbar_alert">Do you want to go back?</string>
+    <string name="weatherforecast">Weather Forecast</string>
 </resources>
